@@ -1,0 +1,13 @@
+#!/bin/bash
+FILE="hello"
+CURRENT_OWNER=$(stat -c '%U' "$FILE")
+TARGET_OWNER="betty"
+EXPECTED_OWNER="guillaume"
+
+if [ "$CURRENT_OWNER" = "$EXPECTED_OWNER" ]; then
+    # Change ownership to betty
+    chown "$TARGET_OWNER" "$FILE"
+    echo "Ownership of $FILE changed to $TARGET_OWNER."
+else
+    echo "The file $FILE is not owned by $EXPECTED_OWNER. No changes made."
+fi
