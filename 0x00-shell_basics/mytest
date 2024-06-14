@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Make all files executable
+chmod +x *
+
+# Stage all changes for commit
+git add .
+
+# Commit changes with message "gdgd"
+git commit -m "gdgd"
+
+# Push changes to remote repository
+git push
+
