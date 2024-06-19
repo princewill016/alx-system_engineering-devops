@@ -1,2 +1,2 @@
 #!/bin/bash
-awk '{count[$1]++} END {for (word in count) if (count[word] == 1) print word}' | sort
+sort <<< "$@" | uniq -c | awk '{if ($1 == 1) print $2}'
