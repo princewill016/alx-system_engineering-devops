@@ -1,2 +1,2 @@
 #!/bin/bash
-num_directories=0
+dir_count=$(find . -type d \( ! -name . -prune \) | wc -l)
