@@ -1,2 +1,2 @@
 #!/bin/bash
-dir_count=$(find . -type d \( ! -name . -prune \) | wc -l)
+dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -name '.*' -prune -o -type d -print | grep -vE '^\.$|^\.\.$' | wc -l)
