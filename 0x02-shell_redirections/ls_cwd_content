@@ -1,0 +1,20 @@
+total 68
+drwxr-xr-x 2 root root 4096 Jun 19 08:15 .
+drwxr-xr-x 6 root root  139 Jun 19 07:08 ..
+-rwxr-xr-x 1 root root   32 Jun 19 07:04 0-hello_world
+-rwxr-xr-x 1 root root   46 Jun 19 06:52 10-no_more_js
+-rwxr-xr-x 1 root root   30 Jun 19 07:01 11-directories
+-rwxr-xr-x 1 root root   29 Jun 19 07:25 1-confused_smiley
+-rwxr-xr-x 1 root root   29 Jun 19 06:53 2-hellofile
+-rwxr-xr-x 1 root root   39 Jun 19 07:28 3-twofiles
+-rwxr-xr-x 1 root root   35 Jun 19 06:52 4-lastlines
+-rwxr-xr-x 1 root root   35 Jun 19 07:43 5-firstlines
+-rwxr-xr-x 1 root root   40 Jun 19 07:40 6-third_line
+-rwxr-xr-x 1 root root   88 Jun 19 08:01 7-file
+-rwxr-xr-x 1 root root   36 Jun 19 08:15 8-cwd_state
+-rwxr-xr-x 1 root root   31 Jun 19 04:18 9-duplicate_last_line
+-rw-r--r-- 1 root root   12 Jun 19 08:02 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rwxr-xr-x 1 root root   50 Jun 19 07:13 commit.git
+-rw-r--r-- 1 root root  801 Jun 19 07:33 iacta
+-rw-r--r-- 1 root root    0 Jun 19 08:15 ls_cwd_content
+-rw-r--r-- 1 root root   40 Jun 19 07:18 README.md
