@@ -1,0 +1,3 @@
+#!/bin/bash
+hex=$(printf "%X\n" "$DECIMAL")
+echo $hex
