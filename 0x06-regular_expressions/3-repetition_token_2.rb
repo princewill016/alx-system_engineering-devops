@@ -2,7 +2,7 @@
 
 import ARGV
 
-pattern = /hb(tt?n)+/
+pattern = /hb(t+n)/
 input = ARGV[0]
 
 if input =~ pattern
