@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This script configures the Ubuntu server to:
+# 1. Resolve 'localhost' to 127.0.0.2
+# 2. Resolve 'facebook.com' to 8.8.8.8
+
+# Update the /etc/hosts file
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+
+# Verify the changes
+echo "localhost resolves to:"
+getent hosts localhost
+echo "facebook.com resolves to:"
+getent hosts facebook.com
