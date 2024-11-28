@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
+# This script listens on localhost port 98 and prints out received messages
 
-# This script listens on port 98 on localhost
-
-# Check if script is run with sudo
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
-   exit 1
-fi
-
-# Listen on port 98 on localhost
-nc -l 127.0.0.1 98
+# Use netcat (nc) to listen on port 98
+# -l: listen mode
+# -p: specify port
+# -k: keep listening after client disconnects
+nc -l -p 98

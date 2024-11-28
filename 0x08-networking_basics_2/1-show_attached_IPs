@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+# This script displays all active IPv4 IP addresses on the machine
 
-# This script displays all active IPv4 IPs on the machine
-
-# Get all IPv4 addresses using ip address show
-ip addr show | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+# Use ip command to get IPv4 addresses
+# -4 filters for IPv4 addresses
+# addr show lists network interfaces
+# grep inet filters for lines with 'inet'
+# awk extracts the IP address
+# sed removes the subnet mask
+ip -4 addr show | grep inet | awk '{print $2}' | sed 's/\/.*$//'
