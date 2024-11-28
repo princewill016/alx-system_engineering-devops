@@ -1,15 +1,37 @@
 #!/usr/bin/env bash
+# This script configures host resolutions by modifying the /etc/hosts file
+# to map localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
-# This script configures the Ubuntu server to:
-# 1. Resolve 'localhost' to 127.0.0.2
-# 2. Resolve 'facebook.com' to 8.8.8.8
+# Check if the script is run with root privileges
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root (use sudo)" 
+   exit 1
+fi
 
-# Update the /etc/hosts file
-echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
-echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+# Backup the original hosts file
+cp /etc/hosts /etc/hosts.backup
+
+# Modify or add localhost resolution
+if grep -q "localhost" /etc/hosts; then
+    # Replace existing localhost entry
+    sed -i 's/127\.0\.0\.1\s*localhost/127.0.0.2 localhost/' /etc/hosts
+else
+    # Add new localhost entry if not exists
+    echo "127.0.0.2 localhost" >> /etc/hosts
+fi
+
+# Modify or add facebook.com resolution
+if grep -q "facebook.com" /etc/hosts; then
+    # Replace existing facebook.com entry
+    sed -i 's/.*facebook\.com/8.8.8.8 facebook.com/' /etc/hosts
+else
+    # Add new facebook.com entry if not exists
+    echo "8.8.8.8 facebook.com" >> /etc/hosts
+fi
 
 # Verify the changes
-echo "localhost resolves to:"
-getent hosts localhost
-echo "facebook.com resolves to:"
-getent hosts facebook.com
+echo "Updated /etc/hosts file:"
+cat /etc/hosts
+
+# Inform user about backup
+echo "Original hosts file backed up to /etc/hosts.backup"
